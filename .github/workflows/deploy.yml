@@ -24,7 +24,6 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # @eslint/js@10 requires ^22.13.0 (or ^20.19.0 / >=24)
           node-version: 22.13
 
       - name: Install dependencies
