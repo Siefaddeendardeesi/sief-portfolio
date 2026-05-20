@@ -1,0 +1,36 @@
+<section class="section section--alt" id="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <header class="section__head section__head--center" appScrollReveal>
+      <p class="section__eyebrow">Skills</p>
+      <h2 class="section__title" id="skills-title">Tools I work with daily</h2>
+      <p class="section__intro">
+        Backend-first full-stack development with modern .NET, Angular, and an expanding AI/ML
+        toolkit.
+      </p>
+    </header>
+
+    <div class="skills__grid" @listStagger>
+      @for (group of skillGroups; track group.title) {
+        <article class="card card--padded skills__card" appScrollReveal>
+          <div class="skills__head">
+            <span class="skills__icon" aria-hidden="true">
+              <app-icon [name]="iconFor(group.icon)" [size]="22" />
+            </span>
+            <div>
+              <h3 class="skills__title">{{ group.title }}</h3>
+              @if (group.note) {
+                <p class="skills__note">{{ group.note }}</p>
+              }
+            </div>
+          </div>
+
+          <ul class="chip-list skills__chips">
+            @for (skill of group.skills; track skill) {
+              <li class="chip">{{ skill }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

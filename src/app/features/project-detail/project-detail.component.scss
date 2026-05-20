@@ -1,0 +1,134 @@
+@use 'abstracts' as *;
+
+.project-detail {
+  padding-bottom: $space-3xl;
+}
+
+.project-detail__hero {
+  padding-block: $space-2xl $space-xl;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 22%, transparent), transparent 55%),
+    var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.project-detail__hero-inner {
+  display: grid;
+  gap: $space-md;
+}
+
+.project-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2xs;
+  width: fit-content;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--text-soft);
+  text-decoration: none;
+
+  app-icon {
+    transform: rotate(180deg);
+  }
+
+  @include focus-ring;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.project-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.project-detail__year {
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: var(--text-muted);
+}
+
+.project-detail__title {
+  font-size: $fs-2xl;
+  font-weight: $fw-extrabold;
+  line-height: $lh-tight;
+  color: var(--text);
+}
+
+.project-detail__tagline {
+  max-width: 44rem;
+  font-size: $fs-md;
+  line-height: $lh-snug;
+  color: var(--text-soft);
+}
+
+.project-detail__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.project-detail__content {
+  display: grid;
+  gap: $space-xl;
+  padding-block: $space-xl;
+}
+
+.project-detail__section {
+  display: grid;
+  gap: $space-sm;
+
+  h2 {
+    font-size: $fs-lg;
+    font-weight: $fw-bold;
+    color: var(--text);
+  }
+
+  p {
+    font-size: $fs-base;
+    line-height: $lh-base;
+    color: var(--text-soft);
+  }
+}
+
+.project-detail__highlights {
+  display: grid;
+  gap: $space-sm;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-xs;
+    font-size: $fs-sm;
+    line-height: $lh-snug;
+    color: var(--text-soft);
+
+    app-icon {
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      color: var(--accent);
+    }
+  }
+}
+
+.project-detail--missing {
+  min-height: 50vh;
+  padding-block: $space-3xl;
+
+  h1 {
+    margin-bottom: $space-sm;
+    font-size: $fs-xl;
+    color: var(--text);
+  }
+
+  p {
+    margin-bottom: $space-md;
+    color: var(--text-soft);
+  }
+}

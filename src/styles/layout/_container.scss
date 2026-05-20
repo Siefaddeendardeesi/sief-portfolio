@@ -1,0 +1,17 @@
+// =============================================================
+// Layout · Containers
+// =============================================================
+
+@use 'abstracts' as *;
+
+.container {
+  @include container($container-max);
+}
+
+.container--narrow {
+  @include container($container-narrow);
+}
+
+.container--wide {
+  @include container($container-wide);
+}

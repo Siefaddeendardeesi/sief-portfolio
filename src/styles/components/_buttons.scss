@@ -1,0 +1,110 @@
+// =============================================================
+// Components · Buttons
+// =============================================================
+
+@use 'abstracts' as *;
+
+.btn {
+  --btn-fg: var(--text);
+  --btn-bg: transparent;
+  --btn-border: transparent;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2xs;
+  padding: 0.8rem 1.5rem;
+  font-family: $font-sans;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--btn-fg);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: $radius-pill;
+  cursor: pointer;
+  transition:
+    transform $transition-fast $ease-out,
+    background-color $transition-base $ease-out,
+    border-color $transition-base $ease-out,
+    box-shadow $transition-base $ease-out,
+    color $transition-base $ease-out;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  svg {
+    width: 1.15em;
+    height: 1.15em;
+    flex-shrink: 0;
+  }
+}
+
+.btn--primary {
+  --btn-fg: var(--accent-contrast);
+  background: var(--gradient-accent);
+  box-shadow: var(--shadow-accent);
+
+  &:hover {
+    box-shadow:
+      var(--shadow-accent),
+      0 0 0 4px var(--accent-soft);
+  }
+}
+
+.btn--outline {
+  --btn-fg: var(--text);
+  --btn-bg: var(--surface);
+  --btn-border: var(--border-strong);
+
+  &:hover {
+    --btn-fg: var(--accent);
+    --btn-border: var(--accent-border);
+  }
+}
+
+.btn--ghost {
+  --btn-fg: var(--text-soft);
+
+  &:hover {
+    --btn-fg: var(--accent);
+    --btn-bg: var(--accent-soft);
+  }
+}
+
+.btn--sm {
+  padding: 0.55rem 1.05rem;
+  font-size: $fs-xs;
+}
+
+.btn--lg {
+  padding: 1rem 1.9rem;
+  font-size: $fs-base;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--icon {
+  padding: 0.6rem;
+  aspect-ratio: 1;
+  border-radius: $radius-md;
+}

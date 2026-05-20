@@ -1,0 +1,37 @@
+// =============================================================
+// Components · Chips / tech tags
+// =============================================================
+
+@use 'abstracts' as *;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3xs;
+  padding: 0.34rem 0.72rem;
+  font-family: $font-mono;
+  font-size: $fs-2xs;
+  font-weight: $fw-medium;
+  color: var(--text-soft);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  transition:
+    color $transition-fast $ease-out,
+    border-color $transition-fast $ease-out,
+    background-color $transition-fast $ease-out;
+}
+
+.chip--accent {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2xs;
+  padding: 0;
+  margin: 0;
+}

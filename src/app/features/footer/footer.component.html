@@ -1,0 +1,34 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a class="footer__logo" routerLink="/">
+        <span class="footer__monogram" aria-hidden="true">{{ site.initials }}</span>
+        <span>{{ site.name }}</span>
+      </a>
+      <p class="footer__tagline">{{ site.role }} · {{ site.location }}</p>
+    </div>
+
+    <div class="footer__links">
+      @for (link of socialLinks; track link.platform) {
+        <a
+          class="footer__link"
+          [href]="link.href"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+        >
+          <app-icon [name]="iconFor(link.platform)" [size]="16" />
+          <span>{{ link.label }}</span>
+        </a>
+      }
+    </div>
+
+    <p class="footer__stack">Built with Angular · TypeScript · SCSS · SweetAlert2</p>
+
+    <p class="footer__copy">
+      © {{ site.copyrightStartYear }}@if (year > site.copyrightStartYear) {
+        –{{ year }}
+      }
+      {{ site.name }}. All rights reserved.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,64 @@
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="container hero__inner" @fadeInUp>
+    <p class="hero__eyebrow">
+      <span class="hero__status" aria-hidden="true"></span>
+      {{ site.availability }}
+    </p>
+
+    <h1 class="hero__title">
+      Hi, I'm <span class="hero__name">{{ site.name }}</span>
+    </h1>
+
+    <p class="hero__role">{{ site.title }}</p>
+    <p class="hero__location">
+      <app-icon name="map-pin" [size]="18" />
+      {{ site.location }}
+    </p>
+    <p class="hero__tagline">{{ site.heroTagline }}</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--lg" routerLink="/" fragment="projects">
+        View projects
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+      <button class="btn btn--outline btn--lg" type="button" (click)="onContactMe()">
+        Contact me
+      </button>
+      <button class="btn btn--ghost btn--lg" type="button" (click)="onHireMe()">
+        Hire me
+      </button>
+    </div>
+
+    <div class="hero__secondary">
+      <a
+        class="btn btn--ghost btn--sm"
+        [href]="site.cvPath"
+        [download]="site.cvFileName"
+        (click)="onCvDownload()"
+      >
+        <app-icon name="download" [size]="16" />
+        Download CV
+      </a>
+    </div>
+
+    <div class="hero__social">
+      @for (link of socialLinks; track link.platform) {
+        <a
+          class="hero__social-link"
+          [href]="link.href"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+          [attr.aria-label]="link.label"
+        >
+          <app-icon [name]="iconFor(link.platform)" [size]="20" />
+        </a>
+      }
+    </div>
+  </div>
+
+  <a class="hero__scroll" routerLink="/" fragment="about" aria-label="Scroll to about section">
+    <app-icon name="chevron-down" [size]="22" />
+  </a>
+</section>

@@ -1,0 +1,125 @@
+@use 'abstracts' as *;
+
+.about__grid {
+  display: grid;
+  gap: $space-xl;
+
+  @include respond-to('lg') {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.about__copy {
+  display: grid;
+  gap: $space-md;
+}
+
+.about__paragraph {
+  font-size: $fs-base;
+  line-height: $lh-base;
+  color: var(--text-soft);
+}
+
+.about__highlight {
+  margin-top: $space-xs;
+  background: var(--gradient-soft);
+  border-color: var(--accent-border);
+}
+
+.about__highlight-label {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2xs;
+  margin-bottom: $space-xs;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  letter-spacing: $ls-wide;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about__highlight-text {
+  font-size: $fs-base;
+  line-height: $lh-snug;
+  color: var(--text);
+}
+
+.about__aside {
+  display: grid;
+  gap: $space-md;
+}
+
+.about__card-title {
+  margin-bottom: $space-md;
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+  color: var(--text);
+}
+
+.about__facts {
+  display: grid;
+  gap: $space-sm;
+  margin: 0;
+}
+
+.about__fact {
+  display: grid;
+  gap: $space-3xs;
+
+  dt {
+    font-family: $font-mono;
+    font-size: $fs-2xs;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wide;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  dd {
+    margin: 0;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: var(--text);
+  }
+}
+
+.about__languages {
+  display: grid;
+  gap: $space-sm;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.about__language-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+  margin-bottom: $space-2xs;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--text);
+}
+
+.about__language-level {
+  font-size: $fs-xs;
+  color: var(--text-muted);
+}
+
+.about__language-bar {
+  height: 0.45rem;
+  background: var(--surface-2);
+  border-radius: $radius-pill;
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: inherit;
+    transition: width 900ms $ease-out;
+  }
+}

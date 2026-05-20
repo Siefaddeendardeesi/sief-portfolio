@@ -1,0 +1,28 @@
+// =============================================================
+// Abstracts · Functions
+// =============================================================
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as *;
+
+// Convert a pixel value to rem (assumes a 16px root).
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Look up a z-index layer by name.
+@function z($layer) {
+  @if not map.has-key($z-layers, $layer) {
+    @error "z(): unknown layer `#{$layer}`.";
+  }
+  @return map.get($z-layers, $layer);
+}
+
+// Look up a breakpoint value by name.
+@function bp($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "bp(): unknown breakpoint `#{$name}`.";
+  }
+  @return map.get($breakpoints, $name);
+}

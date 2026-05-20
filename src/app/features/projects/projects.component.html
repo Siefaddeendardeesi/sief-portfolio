@@ -1,0 +1,56 @@
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <header class="section__head section__head--center" appScrollReveal>
+      <p class="section__eyebrow">Projects</p>
+      <h2 class="section__title" id="projects-title">Selected work</h2>
+      <p class="section__intro">
+        Production-minded .NET platforms and an applied machine learning project.
+      </p>
+    </header>
+
+    <div class="projects__grid" @listStagger>
+      @for (project of projects; track project.slug) {
+        <article
+          class="card card--interactive projects__card"
+          [class.projects__card--featured]="project.featured"
+          appScrollReveal
+        >
+          <a
+            class="projects__cover"
+            [routerLink]="['/projects', project.slug]"
+            [style.--project-accent]="project.accent"
+            [attr.aria-label]="'View ' + project.title + ' details'"
+          >
+            <span class="projects__cover-glow" aria-hidden="true"></span>
+            <span class="projects__cover-meta">
+              <span class="chip chip--accent">{{ project.category }}</span>
+              <span class="projects__year">{{ project.year }}</span>
+            </span>
+            <span class="projects__cover-title">{{ project.title }}</span>
+          </a>
+
+          <div class="projects__body">
+            <h3 class="projects__title">
+              <a [routerLink]="['/projects', project.slug]">{{ project.title }}</a>
+            </h3>
+            <p class="projects__tagline">{{ project.tagline }}</p>
+
+            <ul class="chip-list projects__stack">
+              @for (tech of project.stack.slice(0, 4); track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+              @if (project.stack.length > 4) {
+                <li class="chip">+{{ project.stack.length - 4 }}</li>
+              }
+            </ul>
+
+            <a class="projects__link" [routerLink]="['/projects', project.slug]">
+              View case study
+              <app-icon name="arrow-up-right" [size]="16" />
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

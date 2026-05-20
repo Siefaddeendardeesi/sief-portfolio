@@ -1,0 +1,32 @@
+@use 'abstracts' as *;
+
+.not-found {
+  min-height: calc(100vh - $navbar-height - 12rem);
+  padding-block: $space-3xl;
+}
+
+.not-found__inner {
+  display: grid;
+  gap: $space-md;
+  justify-items: start;
+  max-width: 36rem;
+}
+
+.not-found__code {
+  font-family: $font-mono;
+  font-size: $fs-display;
+  font-weight: $fw-extrabold;
+  line-height: 1;
+  @include gradient-text;
+}
+
+.not-found__title {
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  color: var(--text);
+}
+
+.not-found__text {
+  font-size: $fs-md;
+  color: var(--text-soft);
+}

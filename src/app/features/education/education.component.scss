@@ -1,0 +1,50 @@
+@use 'abstracts' as *;
+
+.education__grid {
+  display: grid;
+  gap: $space-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+}
+
+.education__card {
+  gap: $space-xs;
+}
+
+.education__icon {
+  @include flex-center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: $space-xs;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: $radius-md;
+}
+
+.education__degree {
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+  color: var(--text);
+}
+
+.education__institution {
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--accent);
+}
+
+.education__period {
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: var(--text-muted);
+}
+
+.education__summary {
+  margin-top: $space-xs;
+  font-size: $fs-sm;
+  line-height: $lh-base;
+  color: var(--text-soft);
+}

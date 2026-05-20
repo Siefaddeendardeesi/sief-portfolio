@@ -1,0 +1,81 @@
+@if (project(); as project) {
+  <article class="project-detail">
+    <header
+      class="project-detail__hero"
+      [style.--project-accent]="project.accent"
+      appScrollReveal
+    >
+      <div class="container project-detail__hero-inner">
+        <a class="project-detail__back" routerLink="/" fragment="projects">
+          <app-icon name="arrow-right" [size]="16" />
+          Back to projects
+        </a>
+
+        <div class="project-detail__meta">
+          <span class="chip chip--accent">{{ project.category }}</span>
+          <span class="project-detail__year">{{ project.year }}</span>
+        </div>
+
+        <h1 class="project-detail__title">{{ project.title }}</h1>
+        <p class="project-detail__tagline">{{ project.tagline }}</p>
+
+        <div class="project-detail__links">
+          @for (link of project.links; track link.url) {
+            <a
+              class="btn"
+              [class.btn--primary]="link.type === 'github'"
+              [class.btn--outline]="link.type !== 'github'"
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <app-icon
+                [name]="link.type === 'github' ? 'github' : 'external-link'"
+                [size]="18"
+              />
+              {{ link.label }}
+            </a>
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="container project-detail__content">
+      <section class="project-detail__section" appScrollReveal>
+        <h2>Overview</h2>
+        @for (paragraph of project.overview; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
+      </section>
+
+      <section class="project-detail__section" appScrollReveal [revealDelay]="80">
+        <h2>Tech stack</h2>
+        <ul class="chip-list">
+          @for (tech of project.stack; track tech) {
+            <li class="chip chip--accent">{{ tech }}</li>
+          }
+        </ul>
+      </section>
+
+      <section class="project-detail__section" appScrollReveal [revealDelay]="120">
+        <h2>Highlights</h2>
+        <ul class="project-detail__highlights">
+          @for (highlight of project.highlights; track highlight) {
+            <li>
+              <app-icon name="check" [size]="16" />
+              <span>{{ highlight }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+    </div>
+  </article>
+} @else {
+  <section class="project-detail project-detail--missing">
+    <div class="container">
+      <h1>Project not found</h1>
+      <p>The project you requested does not exist.</p>
+      <a class="btn btn--primary" routerLink="/" fragment="projects">Back to projects</a>
+    </div>
+  </section>
+}

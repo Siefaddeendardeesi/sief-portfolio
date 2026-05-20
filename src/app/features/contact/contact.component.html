@@ -1,0 +1,91 @@
+<section class="section section--alt" id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <header class="section__head section__head--center" appScrollReveal>
+      <p class="section__eyebrow">Contact</p>
+      <h2 class="section__title" id="contact-title">Let's build something</h2>
+      <p class="section__intro">
+        Open to full-time .NET roles in the Gulf and Turkey. Send a message or reach out
+        directly.
+      </p>
+    </header>
+
+    <div class="contact__grid">
+      <form class="contact__form card card--padded" [formGroup]="form" (ngSubmit)="onSubmit()" appScrollReveal>
+        <div class="contact__field">
+          <label class="contact__label" for="contact-name">Name</label>
+          <input
+            id="contact-name"
+            class="contact__input"
+            type="text"
+            formControlName="name"
+            autocomplete="name"
+            [class.contact__input--invalid]="form.controls.name.touched && form.controls.name.invalid"
+          />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="contact-email">Email</label>
+          <input
+            id="contact-email"
+            class="contact__input"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            [class.contact__input--invalid]="form.controls.email.touched && form.controls.email.invalid"
+          />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="contact-subject">Subject</label>
+          <input
+            id="contact-subject"
+            class="contact__input"
+            type="text"
+            formControlName="subject"
+            [class.contact__input--invalid]="form.controls.subject.touched && form.controls.subject.invalid"
+          />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label" for="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            class="contact__input contact__textarea"
+            rows="5"
+            formControlName="message"
+            [class.contact__input--invalid]="form.controls.message.touched && form.controls.message.invalid"
+          ></textarea>
+        </div>
+
+        <button class="btn btn--primary btn--block" type="submit" [disabled]="submitting()">
+          <app-icon name="send" [size]="18" />
+          {{ submitting() ? 'Sending…' : 'Send message' }}
+        </button>
+      </form>
+
+      <aside class="contact__aside" appScrollReveal [revealDelay]="100">
+        <div class="card card--padded contact__card">
+          <h3 class="contact__card-title">Direct links</h3>
+          <ul class="contact__links">
+            @for (link of socialLinks; track link.platform) {
+              <li>
+                <a
+                  class="contact__link"
+                  [href]="link.href"
+                  [attr.target]="link.external ? '_blank' : null"
+                  [attr.rel]="link.external ? 'noopener noreferrer' : null"
+                >
+                  <app-icon [name]="iconFor(link.platform)" [size]="18" />
+                  <span>
+                    <strong>{{ link.label }}</strong>
+                    <small>{{ link.value }}</small>
+                  </span>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

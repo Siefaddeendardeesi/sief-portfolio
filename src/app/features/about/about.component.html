@@ -1,0 +1,71 @@
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <header class="section__head" appScrollReveal>
+      <p class="section__eyebrow">About</p>
+      <h2 class="section__title" id="about-title">Building reliable .NET systems</h2>
+      <p class="section__intro">
+        Full-stack developer with enterprise HR experience and a growing focus on applied AI.
+      </p>
+    </header>
+
+    <div class="about__grid">
+      <div class="about__copy" appScrollReveal [revealDelay]="80">
+        @for (paragraph of site.aboutBio; track $index) {
+          <p class="about__paragraph">{{ paragraph }}</p>
+        }
+
+        <div class="about__highlight card card--padded">
+          <p class="about__highlight-label">
+            <app-icon name="ai" [size]="18" />
+            Currently working on
+          </p>
+          <p class="about__highlight-text">{{ site.workingOn }}</p>
+        </div>
+      </div>
+
+      <aside class="about__aside" appScrollReveal [revealDelay]="160">
+        <div class="card card--padded about__card">
+          <h3 class="about__card-title">Quick facts</h3>
+          <dl class="about__facts">
+            <div class="about__fact">
+              <dt>Location</dt>
+              <dd>{{ site.location }}</dd>
+            </div>
+            <div class="about__fact">
+              <dt>Focus</dt>
+              <dd>{{ site.role }}</dd>
+            </div>
+            <div class="about__fact">
+              <dt>Availability</dt>
+              <dd>{{ site.availability }}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="card card--padded about__card">
+          <h3 class="about__card-title">Languages</h3>
+          <ul class="about__languages">
+            @for (language of languages; track language.name) {
+              <li class="about__language">
+                <div class="about__language-head">
+                  <span>{{ language.name }}</span>
+                  <span class="about__language-level">{{ language.level }}</span>
+                </div>
+                <div
+                  class="about__language-bar"
+                  role="progressbar"
+                  [attr.aria-valuenow]="language.proficiency"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [attr.aria-label]="language.name + ' proficiency'"
+                >
+                  <span [style.width.%]="language.proficiency"></span>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

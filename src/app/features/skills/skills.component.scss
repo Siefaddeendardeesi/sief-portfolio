@@ -1,0 +1,52 @@
+@use 'abstracts' as *;
+
+.skills__grid {
+  display: grid;
+  gap: $space-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.skills__card {
+  gap: $space-md;
+  height: 100%;
+}
+
+.skills__head {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-sm;
+}
+
+.skills__icon {
+  @include flex-center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: $radius-md;
+}
+
+.skills__title {
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+  color: var(--text);
+}
+
+.skills__note {
+  margin-top: $space-3xs;
+  font-size: $fs-xs;
+  color: var(--text-muted);
+}
+
+.skills__chips {
+  margin-top: auto;
+}

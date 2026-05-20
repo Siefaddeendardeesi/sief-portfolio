@@ -1,0 +1,162 @@
+// =============================================================
+// Components · SweetAlert2 theme overrides
+// Re-skins SweetAlert2 to match the portfolio theme. Because the
+// popup renders on <body>, it inherits the [data-theme] variables
+// and adapts to light / dark automatically.
+// =============================================================
+
+@use 'abstracts' as *;
+
+.swal2-container {
+  z-index: z('toast') !important;
+}
+
+.swal2-backdrop-show {
+  background: rgba(5, 9, 18, 0.66) !important;
+}
+
+.swal2-popup {
+  padding: $space-lg !important;
+  font-family: $font-sans !important;
+  color: var(--text) !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: $radius-lg !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.swal2-title {
+  font-size: $fs-lg !important;
+  font-weight: $fw-bold !important;
+  color: var(--text) !important;
+}
+
+.swal2-html-container {
+  font-size: $fs-sm !important;
+  color: var(--text-soft) !important;
+}
+
+.swal2-actions {
+  gap: $space-2xs !important;
+}
+
+.swal2-styled {
+  padding: 0.7rem 1.5rem !important;
+  font-family: $font-sans !important;
+  font-size: $fs-sm !important;
+  font-weight: $fw-semibold !important;
+  border-radius: $radius-pill !important;
+  box-shadow: none !important;
+  transition: transform $transition-fast $ease-out !important;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+.swal2-confirm {
+  color: var(--accent-contrast) !important;
+  background: var(--gradient-accent) !important;
+}
+
+.swal2-cancel {
+  color: var(--text) !important;
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+
+.swal2-deny {
+  color: var(--accent-contrast) !important;
+  background: var(--error) !important;
+}
+
+.swal2-input,
+.swal2-textarea,
+.swal2-select {
+  font-family: $font-sans !important;
+  color: var(--text) !important;
+  background: var(--bg) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: $radius-sm !important;
+  box-shadow: none !important;
+
+  &::placeholder {
+    color: var(--text-muted) !important;
+  }
+
+  &:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-soft) !important;
+  }
+}
+
+.swal2-validation-message {
+  font-size: $fs-xs !important;
+  color: var(--error) !important;
+  background: transparent !important;
+}
+
+.swal2-close {
+  color: var(--text-muted) !important;
+
+  &:hover {
+    color: var(--accent) !important;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent) !important;
+    box-shadow: none !important;
+  }
+}
+
+.swal2-timer-progress-bar {
+  background: var(--gradient-accent) !important;
+}
+
+.swal2-toast {
+  padding: $space-sm !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.swal2-toast .swal2-title {
+  font-size: $fs-sm !important;
+  color: var(--text) !important;
+}
+
+.swal2-icon.swal2-success {
+  border-color: var(--success) !important;
+
+  .swal2-success-ring {
+    border-color: var(--accent-border) !important;
+  }
+
+  [class^='swal2-success-line'] {
+    background-color: var(--success) !important;
+  }
+}
+
+.swal2-icon.swal2-error {
+  border-color: var(--error) !important;
+
+  .swal2-x-mark-line {
+    background-color: var(--error) !important;
+  }
+}
+
+.swal2-icon.swal2-warning {
+  border-color: var(--warning) !important;
+  color: var(--warning) !important;
+}
+
+.swal2-icon.swal2-info,
+.swal2-icon.swal2-question {
+  border-color: var(--accent-border) !important;
+  color: var(--accent) !important;
+}

@@ -1,0 +1,112 @@
+// =============================================================
+// Base · Typography & global element styling
+// =============================================================
+
+@use 'abstracts' as *;
+
+body {
+  font-family: $font-sans;
+  font-size: $fs-base;
+  font-weight: $fw-regular;
+  line-height: $lh-base;
+  color: var(--text);
+  background-color: var(--bg);
+  transition:
+    background-color $transition-base $ease-out,
+    color $transition-base $ease-out;
+  @include custom-scrollbar;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $fw-bold;
+  line-height: $lh-tight;
+  letter-spacing: $ls-tight;
+  color: var(--text);
+}
+
+h1 {
+  font-size: $fs-3xl;
+}
+h2 {
+  font-size: $fs-2xl;
+}
+h3 {
+  font-size: $fs-lg;
+}
+h4 {
+  font-size: $fs-md;
+}
+
+p {
+  color: var(--text-soft);
+}
+
+a {
+  color: var(--accent);
+  transition: color $transition-fast $ease-out;
+
+  &:hover {
+    color: var(--accent-strong);
+  }
+}
+
+strong,
+b {
+  font-weight: $fw-semibold;
+  color: var(--text);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: $font-mono;
+  font-size: 0.92em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: $radius-xs;
+}
+
+// ---- Shared utilities ---------------------------------------
+.mono {
+  font-family: $font-mono;
+  font-feature-settings: 'liga' 0;
+}
+
+.text-gradient {
+  @include gradient-text;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.skip-link {
+  position: absolute;
+  top: $space-2xs;
+  left: $space-2xs;
+  z-index: z('toast');
+  padding: $space-2xs $space-sm;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border-radius: $radius-sm;
+  transform: translateY(-160%);
+  transition: transform $transition-base $ease-out;
+
+  &:focus-visible {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,71 @@
+// =============================================================
+// Layout · Section scaffolding & shared section headings
+// =============================================================
+
+@use 'abstracts' as *;
+
+.section {
+  position: relative;
+  padding-block: $space-2xl;
+  scroll-margin-top: $navbar-height;
+
+  @include respond-to('md') {
+    padding-block: $space-3xl;
+  }
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section__head {
+  max-width: $container-narrow;
+  margin-bottom: $space-xl;
+
+  @include respond-to('md') {
+    margin-bottom: $space-2xl;
+  }
+}
+
+.section__head--center {
+  margin-inline: auto;
+  text-align: center;
+
+  .section__eyebrow {
+    justify-content: center;
+  }
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2xs;
+  margin-bottom: $space-sm;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  letter-spacing: $ls-wide;
+  text-transform: uppercase;
+  color: var(--accent);
+
+  &::before {
+    content: '';
+    width: 1.6rem;
+    height: 2px;
+    background: var(--accent);
+    border-radius: $radius-pill;
+  }
+}
+
+.section__title {
+  font-size: $fs-2xl;
+  font-weight: $fw-extrabold;
+  color: var(--text);
+}
+
+.section__intro {
+  margin-top: $space-sm;
+  font-size: $fs-md;
+  line-height: $lh-snug;
+  color: var(--text-soft);
+}

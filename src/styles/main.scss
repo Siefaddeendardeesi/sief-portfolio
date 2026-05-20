@@ -1,0 +1,14 @@
+// =============================================================
+// Sief Addeen Aldardeesi — Developer Portfolio
+// Global stylesheet entry point.
+//
+//   theme      → light / dark CSS custom properties
+//   base       → reset + typography
+//   layout     → containers + section scaffolding
+//   components → buttons, chips, cards, SweetAlert2 overrides
+// =============================================================
+
+@use 'theme';
+@use 'base';
+@use 'layout';
+@use 'components';

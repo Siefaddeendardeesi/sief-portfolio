@@ -1,0 +1,46 @@
+<section class="section" id="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <header class="section__head" appScrollReveal>
+      <p class="section__eyebrow">Experience</p>
+      <h2 class="section__title" id="experience-title">Where I've been building</h2>
+      <p class="section__intro">
+        Enterprise HR software by day, ambitious side projects by night.
+      </p>
+    </header>
+
+    <ol class="timeline" @listStagger>
+      @for (item of experience; track item.company + item.period) {
+        <li class="timeline__item card card--padded" appScrollReveal>
+          <div class="timeline__head">
+            <span class="timeline__icon" aria-hidden="true">
+              <app-icon name="briefcase" [size]="20" />
+            </span>
+            <div class="timeline__meta">
+              <div class="timeline__row">
+                <h3 class="timeline__role">{{ item.role }}</h3>
+                @if (item.current) {
+                  <span class="chip chip--accent">Current</span>
+                }
+              </div>
+              <p class="timeline__company">
+                {{ item.company }} · {{ item.location }}
+              </p>
+              <p class="timeline__period">{{ item.period }}</p>
+            </div>
+          </div>
+
+          <p class="timeline__summary">{{ item.summary }}</p>
+
+          <ul class="timeline__highlights">
+            @for (highlight of item.highlights; track highlight) {
+              <li>
+                <app-icon name="check" [size]="16" />
+                <span>{{ highlight }}</span>
+              </li>
+            }
+          </ul>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

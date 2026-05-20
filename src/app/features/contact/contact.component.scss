@@ -1,0 +1,114 @@
+@use 'abstracts' as *;
+
+.contact__grid {
+  display: grid;
+  gap: $space-lg;
+
+  @include respond-to('lg') {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: start;
+  }
+}
+
+.contact__form {
+  display: grid;
+  gap: $space-md;
+}
+
+.contact__field {
+  display: grid;
+  gap: $space-2xs;
+}
+
+.contact__label {
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--text);
+}
+
+.contact__input {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  font-family: $font-sans;
+  font-size: $fs-sm;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  transition:
+    border-color $transition-fast $ease-out,
+    box-shadow $transition-fast $ease-out;
+
+  @include focus-ring;
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+
+  &:focus {
+    border-color: var(--accent-border);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+    outline: none;
+  }
+
+  &--invalid {
+    border-color: var(--error);
+  }
+}
+
+.contact__textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.contact__card-title {
+  margin-bottom: $space-md;
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+  color: var(--text);
+}
+
+.contact__links {
+  display: grid;
+  gap: $space-sm;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact__link {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-sm;
+  padding: $space-sm;
+  color: var(--text-soft);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: $radius-md;
+  transition:
+    color $transition-fast $ease-out,
+    border-color $transition-fast $ease-out,
+    background-color $transition-fast $ease-out;
+
+  @include focus-ring;
+
+  strong {
+    display: block;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: var(--text);
+  }
+
+  small {
+    display: block;
+    margin-top: $space-3xs;
+    font-size: $fs-xs;
+    color: var(--text-muted);
+  }
+
+  &:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: var(--accent-border);
+  }
+}

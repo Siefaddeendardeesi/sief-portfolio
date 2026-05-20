@@ -1,0 +1,30 @@
+// =============================================================
+// Components · Card surfaces
+// =============================================================
+
+@use 'abstracts' as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  transition:
+    transform $transition-base $ease-out,
+    border-color $transition-base $ease-out,
+    box-shadow $transition-base $ease-out;
+}
+
+.card--padded {
+  padding: $space-lg;
+}
+
+.card--interactive {
+  &:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-lg);
+  }
+}

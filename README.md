@@ -1,59 +1,97 @@
-# SiefPortfolio
+# Sief Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+Personal developer portfolio for **Sief Addeen Aldardeesi** — Full-Stack .NET Developer based in Amman, Jordan.
 
-## Development server
+Built with Angular 21, standalone components, SCSS (BEM), and SweetAlert2. Dark mode by default with a persisted light/dark theme toggle.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Single-page layout with anchor-scroll sections: Hero, About, Skills, Experience, Education, Projects, Contact
+- Lazy-loaded project detail route at `/projects/:slug`
+- Centralized `AlertService` wrapping SweetAlert2 (toasts, modals, confirmations)
+- `ThemeService` with localStorage persistence and flash-free first paint
+- Scroll-reveal animations with reduced-motion support
+- Reactive contact form with validation
+- Responsive, mobile-first design (480 / 768 / 1024 / 1280 breakpoints)
+- GitHub Pages deploy workflow included
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Screenshots
 
-## Code scaffolding
+> Add screenshots to `docs/screenshots/` and link them here after your first deploy.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Prerequisites
 
-```bash
-ng generate component component-name
-```
+- Node.js 20+ (22 recommended)
+- npm 10+
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Getting started
 
 ```bash
-ng build
+cd sief-portfolio
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Open [http://localhost:4200](http://localhost:4200).
 
-## Running unit tests
+## Scripts
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+| Command | Description |
+| --- | --- |
+| `npm start` | Dev server |
+| `npm run build:prod` | Production build |
+| `npm test` | Unit tests (Vitest) |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier write |
+
+## Before you publish
+
+1. **Contact details** — edit `src/app/core/config/site-config.ts` and replace the placeholder email, phone, LinkedIn, and GitHub values.
+2. **CV** — place your PDF at `public/assets/cv/Sief-Addeen-Aldardeesi-CV.pdf` (replace the placeholder).
+3. **GitHub repo URLs** — verify project repo names in `src/app/core/data/projects.data.ts`.
+
+## Production build
 
 ```bash
-ng test
+npm run build:prod
 ```
 
-## Running end-to-end tests
+Output: `dist/sief-portfolio/browser`
 
-For end-to-end (e2e) testing, run:
+For GitHub Pages (project site at `https://<user>.github.io/sief-portfolio/`):
 
 ```bash
-ng e2e
+npm run build:prod -- --base-href /sief-portfolio/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Deploy to GitHub Pages
 
-## Additional Resources
+1. Push this repo to GitHub (default branch `main`).
+2. In repo **Settings → Pages**, set source to **GitHub Actions**.
+3. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+If your repo name is not `sief-portfolio`, update the `--base-href` flag in the workflow to match.
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── core/          # config, models, data, services
+│   ├── features/      # page sections & routes
+│   └── shared/        # icons, animations, directives
+└── styles/            # SCSS architecture (abstracts, base, layout, components, theme)
+```
+
+## Path aliases
+
+| Alias | Path |
+| --- | --- |
+| `@core/*` | `src/app/core/*` |
+| `@shared/*` | `src/app/shared/*` |
+| `@features/*` | `src/app/features/*` |
+| `@assets/*` | `public/assets/*` |
+
+## License
+
+MIT © Sief Addeen Aldardeesi

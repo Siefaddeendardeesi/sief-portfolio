@@ -1,0 +1,121 @@
+@use 'abstracts' as *;
+
+.projects__grid {
+  display: grid;
+  gap: $space-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.projects__card {
+  overflow: hidden;
+
+  &--featured {
+    @include respond-to('lg') {
+      &:first-child {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+.projects__cover {
+  position: relative;
+  display: grid;
+  align-content: end;
+  gap: $space-sm;
+  min-height: 11rem;
+  padding: $space-lg;
+  color: #fff;
+  text-decoration: none;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--project-accent) 88%, #000 12%), #0b1120 92%),
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--project-accent) 45%, transparent), transparent 55%);
+  overflow: hidden;
+
+  @include focus-ring;
+}
+
+.projects__cover-glow {
+  position: absolute;
+  inset: auto -20% -40% auto;
+  width: 220px;
+  height: 220px;
+  background: color-mix(in srgb, var(--project-accent) 35%, transparent);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.projects__cover-meta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+}
+
+.projects__year {
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.projects__cover-title {
+  position: relative;
+  font-size: $fs-xl;
+  font-weight: $fw-extrabold;
+  line-height: $lh-tight;
+}
+
+.projects__body {
+  display: grid;
+  gap: $space-sm;
+  padding: $space-lg;
+}
+
+.projects__title {
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color $transition-fast $ease-out;
+
+    &:hover {
+      color: var(--accent);
+    }
+
+    @include focus-ring;
+  }
+}
+
+.projects__tagline {
+  font-size: $fs-sm;
+  line-height: $lh-snug;
+  color: var(--text-soft);
+}
+
+.projects__stack {
+  margin-top: $space-2xs;
+}
+
+.projects__link {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2xs;
+  width: fit-content;
+  margin-top: $space-2xs;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: var(--accent);
+  text-decoration: none;
+
+  @include focus-ring;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

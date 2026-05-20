@@ -1,0 +1,36 @@
+@use 'abstracts' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.back-to-top {
+  position: fixed;
+  right: $space-md;
+  bottom: $space-md;
+  z-index: z('raised');
+  @include flex-center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--accent-contrast);
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: $radius-pill;
+  box-shadow: var(--shadow-accent);
+  cursor: pointer;
+  transition:
+    transform $transition-fast $ease-out,
+    opacity $transition-base $ease-out;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}

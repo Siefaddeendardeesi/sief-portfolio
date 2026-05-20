@@ -1,0 +1,83 @@
+<header class="navbar" [class.navbar--scrolled]="scrolled()">
+  <div class="container navbar__inner">
+    <a class="navbar__brand" routerLink="/" (click)="closeMobile()">
+      <span class="navbar__monogram" aria-hidden="true">{{ site.initials }}</span>
+      <span class="navbar__name">{{ site.shortName }}</span>
+    </a>
+
+    <nav class="navbar__nav" aria-label="Primary">
+      @for (link of navLinks; track link.fragment) {
+        <a
+          class="navbar__link"
+          routerLink="/"
+          [fragment]="link.fragment"
+          (click)="closeMobile()"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="navbar__actions">
+      <a
+        class="btn btn--outline btn--sm navbar__cv"
+        [href]="site.cvPath"
+        [download]="site.cvFileName"
+        (click)="onCvDownload()"
+      >
+        <app-icon name="download" [size]="16" />
+        CV
+      </a>
+
+      <button
+        type="button"
+        class="btn btn--ghost btn--icon navbar__theme"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+      >
+        <app-icon [name]="theme.isDark() ? 'sun' : 'moon'" [size]="20" />
+      </button>
+
+      <button
+        type="button"
+        class="btn btn--ghost btn--icon navbar__toggle"
+        (click)="toggleMobile()"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
+      >
+        <app-icon [name]="mobileOpen() ? 'close' : 'menu'" [size]="22" />
+      </button>
+    </div>
+  </div>
+
+  @if (mobileOpen()) {
+    <nav
+      id="mobile-nav"
+      class="navbar__mobile"
+      aria-label="Mobile primary"
+      @expandCollapse
+    >
+      <div class="container navbar__mobile-inner">
+        @for (link of navLinks; track link.fragment) {
+          <a
+            class="navbar__mobile-link"
+            routerLink="/"
+            [fragment]="link.fragment"
+            (click)="closeMobile()"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <a
+          class="navbar__mobile-link navbar__mobile-cv"
+          [href]="site.cvPath"
+          [download]="site.cvFileName"
+          (click)="onCvDownload(); closeMobile()"
+        >
+          Download CV
+        </a>
+      </div>
+    </nav>
+  }
+</header>
