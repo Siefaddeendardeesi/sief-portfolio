@@ -15,5 +15,4 @@ export interface EducationItem {
   readonly location: string;
   readonly period: string;
   readonly summary: string;
-  readonly imagePath?: string;
 }
