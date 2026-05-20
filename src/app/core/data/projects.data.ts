@@ -139,38 +139,4 @@ export const PROJECTS: readonly Project[] = [
       },
     ],
   },
-  {
-    slug: 'car-price-ml',
-    title: 'Used Car Price Prediction',
-    tagline:
-      'Regression model predicting used car prices from a 5,000-row Jordan-based synthetic ' +
-      'dataset.',
-    category: 'Machine Learning',
-    year: '2026',
-    featured: false,
-    accent: '#10b981',
-    overview: [
-      'This project trains a regression model to predict used-car prices from a 5,000-row, ' +
-        'Jordan-based synthetic dataset that I generated with realistic feature correlations ' +
-        'and tuned pricing logic.',
-      'The pipeline covers data cleaning, IQR-based outlier removal and a systematic ' +
-        'comparison of encoding strategies. The final approach — One-Hot Encoding with a ' +
-        'log1p target transform feeding a Linear Regression model — outperformed tree-based ' +
-        'models such as XGBoost on this dataset.',
-    ],
-    stack: ['Python', 'Pandas', 'NumPy', 'scikit-learn', 'XGBoost', 'Matplotlib'],
-    highlights: [
-      'Full pipeline: cleaning, IQR outlier removal, encoding strategy comparison',
-      'Final approach: One-Hot Encoding + log1p target transform + Linear Regression — ' +
-        'outperformed tree-based models on this dataset',
-      'Generated the synthetic dataset with realistic correlations and tuned pricing logic',
-    ],
-    links: [
-      {
-        type: 'github',
-        label: 'Source code',
-        url: `${CONTACT.githubUrl}/used-car-price-prediction`,
-      },
-    ],
-  },
 ];

@@ -2,11 +2,11 @@
   <div class="container">
     <header class="section__head" appScrollReveal>
       <p class="section__eyebrow">Education</p>
-      <h2 class="section__title" id="education-title">Academic foundation</h2>
+      <h2 class="section__title" id="education-title">Education & certifications</h2>
     </header>
 
     <div class="education__grid">
-      @for (item of education; track item.institution) {
+      @for (item of education; track item.degree + item.institution) {
         <article class="card card--padded education__card" appScrollReveal>
           <span class="education__icon" aria-hidden="true">
             <app-icon name="graduation-cap" [size]="22" />
@@ -17,6 +17,14 @@
           </p>
           <p class="education__period">{{ item.period }}</p>
           <p class="education__summary">{{ item.summary }}</p>
+          @if (item.imagePath) {
+            <img
+              class="education__certificate"
+              [src]="item.imagePath"
+              [alt]="item.degree + ' certificate from ' + item.institution"
+              loading="lazy"
+            />
+          }
         </article>
       }
     </div>

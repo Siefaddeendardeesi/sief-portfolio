@@ -7,7 +7,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Sief Addeen Aldardeesi — Full-Stack .NET Developer',
+    title: 'Sief Addeen Aldardeesi — Backend .NET Developer',
   },
   {
     path: 'projects/:slug',

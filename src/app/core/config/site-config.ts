@@ -14,10 +14,10 @@ import { NavLink, SocialLink } from '../models';
 // TODO(Sief): replace the four placeholder values below with your real
 // details. Every contact link, social button and the footer reads from here.
 export const CONTACT = {
-  email: 'your.email@example.com', // TODO: your contact email
+  email: 'saifdardese@gmail.com',
   phone: '+962 7 0000 0000', // TODO: your phone number
-  linkedinUrl: 'https://www.linkedin.com/in/your-handle', // TODO: your LinkedIn profile
-  githubUrl: 'https://github.com/your-handle', // TODO: your GitHub profile
+  linkedinUrl: 'https://www.linkedin.com/in/sief-addeen-aldardeesi/',
+  githubUrl: 'https://github.com/Siefaddeendardeesi',
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -27,23 +27,22 @@ export const SITE = {
   name: 'Sief Addeen Aldardeesi',
   shortName: 'Sief Aldardeesi',
   initials: 'SA',
-  role: 'Full-Stack .NET Developer',
-  title: 'Full-Stack .NET Developer | Aspiring AI Engineer',
+  role: 'Backend .NET Developer',
+  title: 'Backend .NET Developer | Aspiring AI Engineer',
   location: 'Amman, Jordan',
   heroTagline:
     'I build production .NET systems — Clean Architecture, real-time features and payment ' +
     'flows — and I am now folding applied machine learning into the mix.',
   aboutBio: [
-    'Software Engineer from Üsküdar University (Istanbul, 2023), now based in Amman. ' +
-      'I specialize in ASP.NET Core, Clean Architecture, and Entity Framework Core, with two ' +
-      'flagship projects: FavouriteRestaurant (bilingual restaurant platform) and MyHR ' +
-      '(enterprise HR ERP).',
+    'Software Engineer from Üsküdar University (Istanbul, 2023), now based in Amman and ' +
+      'working as a backend .NET developer. I specialize in ASP.NET Core, Clean Architecture, ' +
+      'and Entity Framework Core, with two flagship projects: FavouriteRestaurant (bilingual ' +
+      'restaurant platform) and MyHR (enterprise HR ERP).',
     'Trilingual in Arabic, English, and Turkish, and currently expanding into AI/ML ' +
       'engineering — Python, scikit-learn, and applied regression work alongside my .NET career.',
   ],
   workingOn:
-    'Deepening applied machine learning — regression modelling, feature engineering and ' +
-    'the scikit-learn / XGBoost toolchain.',
+    'Deepening applied machine learning — regression modelling and feature engineering.',
   cvPath: 'assets/cv/Sief-Addeen-Aldardeesi-CV.pdf',
   cvFileName: 'Sief-Addeen-Aldardeesi-CV.pdf',
   themeStorageKey: 'sief-portfolio-theme',

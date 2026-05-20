@@ -20,7 +20,7 @@ export const SKILL_GROUPS: readonly SkillGroup[] = [
   {
     title: 'Frontend',
     icon: 'frontend',
-    skills: ['Angular', 'TypeScript', 'SCSS', 'HTML5', 'JavaScript', 'RxJS'],
+    skills: ['TypeScript', 'SCSS', 'HTML5', 'JavaScript'],
   },
   {
     title: 'Databases',
@@ -30,7 +30,7 @@ export const SKILL_GROUPS: readonly SkillGroup[] = [
   {
     title: 'DevOps & Tools',
     icon: 'devops',
-    skills: ['Git', 'GitHub', 'Postman', 'Visual Studio', 'VS Code'],
+    skills: ['Git', 'GitHub'],
   },
   {
     title: 'Integrations',
