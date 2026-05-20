@@ -30,22 +30,20 @@ export const SITE = {
   role: 'Full-Stack .NET Developer',
   title: 'Full-Stack .NET Developer | Aspiring AI Engineer',
   location: 'Amman, Jordan',
-  availability: 'Open to full-time .NET roles in the Gulf & Turkey',
   heroTagline:
     'I build production .NET systems — Clean Architecture, real-time features and payment ' +
     'flows — and I am now folding applied machine learning into the mix.',
   aboutBio: [
-    'Software Engineer from Üsküdar University (Istanbul, 2023), now based in Amman ' +
-      'building HR software at Menaitech. I specialize in ASP.NET Core, Clean Architecture, ' +
-      'and Entity Framework Core, with two flagship projects: FavouriteRestaurant ' +
-      '(bilingual restaurant platform) and MyHR (enterprise HR ERP).',
+    'Software Engineer from Üsküdar University (Istanbul, 2023), now based in Amman. ' +
+      'I specialize in ASP.NET Core, Clean Architecture, and Entity Framework Core, with two ' +
+      'flagship projects: FavouriteRestaurant (bilingual restaurant platform) and MyHR ' +
+      '(enterprise HR ERP).',
     'Trilingual in Arabic, English, and Turkish, and currently expanding into AI/ML ' +
-      'engineering — Python, scikit-learn, and applied regression work alongside my .NET ' +
-      'career. Open to full-time .NET roles in the Gulf and Turkey.',
+      'engineering — Python, scikit-learn, and applied regression work alongside my .NET career.',
   ],
   workingOn:
     'Deepening applied machine learning — regression modelling, feature engineering and ' +
-    'the scikit-learn / XGBoost toolchain — while shipping HR software at Menaitech.',
+    'the scikit-learn / XGBoost toolchain.',
   cvPath: 'assets/cv/Sief-Addeen-Aldardeesi-CV.pdf',
   cvFileName: 'Sief-Addeen-Aldardeesi-CV.pdf',
   themeStorageKey: 'sief-portfolio-theme',

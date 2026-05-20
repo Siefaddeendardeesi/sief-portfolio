@@ -2,19 +2,6 @@ import { EducationItem, ExperienceItem } from '../models';
 
 export const EXPERIENCE: readonly ExperienceItem[] = [
   {
-    role: 'Trainee Developer',
-    company: 'Menaitech',
-    location: 'Amman, Jordan',
-    period: 'May 2025 – Present',
-    current: true,
-    summary: 'Developing features for enterprise HR software within Menaitech’s team.',
-    highlights: [
-      'Build and maintain HR product features with ASP.NET Core, EF Core and SQL Server.',
-      'Work within an established enterprise codebase and team development workflow.',
-      'Apply real HR-domain knowledge that directly shaped the MyHR side project.',
-    ],
-  },
-  {
     role: 'Full Stack Developer Trainee',
     company: 'A Plus Academy',
     location: 'Amman, Jordan',

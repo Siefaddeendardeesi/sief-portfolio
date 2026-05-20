@@ -80,8 +80,6 @@ export const PROJECTS: readonly Project[] = [
         'Leave and Employee Contracts — all backed by consistent repository, service and ' +
         'audit-log patterns. Hangfire handles recurring jobs and AutoMapper keeps the domain ' +
         'and view models cleanly separated.',
-      'The domain model draws directly on real-world HR software experience gained while ' +
-        'working at Menaitech.',
     ],
     stack: [
       'ASP.NET Core MVC',
@@ -95,7 +93,7 @@ export const PROJECTS: readonly Project[] = [
       'Three integrated modules: HR & Payroll, Accounting & Finance, Reporting & Dashboards',
       'HR module complete: Employee, Department, Position, Attendance, Leave, EmployeeContract',
       'Full repository / service / audit-log patterns',
-      'Domain inspired by real Menaitech HR software experience',
+      'Enterprise HR domain: payroll, attendance, leave and employee contracts',
     ],
     links: [
       {
