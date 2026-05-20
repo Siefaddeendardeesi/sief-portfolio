@@ -46,19 +46,4 @@ export class HeroComponent {
       this.alert.toast('Message sent — thanks for reaching out!', 'success', 3000);
     }
   }
-
-  async onHireMe(): Promise<void> {
-    const email = await this.alert.input({
-      title: 'Hire me',
-      text: 'Drop your email and I will get back to you.',
-      inputLabel: 'Work email',
-      inputPlaceholder: 'you@company.com',
-      confirmButtonText: 'Send',
-      type: 'email',
-    });
-
-    if (email) {
-      this.alert.toast('Thanks! I will be in touch soon.', 'success', 3000);
-    }
-  }
 }
