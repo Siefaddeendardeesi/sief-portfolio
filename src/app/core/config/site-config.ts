@@ -43,8 +43,8 @@ export const SITE = {
   ],
   workingOn:
     'Deepening applied machine learning — regression modelling and feature engineering.',
-  cvPath: 'assets/cv/Sief-Addeen-Aldardeesi-CV.pdf',
-  cvFileName: 'Sief-Addeen-Aldardeesi-CV.pdf',
+  cvPath: 'assets/cv/SiefAddeenAldardeesiCv.pdf',
+  cvFileName: 'SiefAddeenAldardeesiCv.pdf',
   themeStorageKey: 'sief-portfolio-theme',
   copyrightStartYear: 2025,
 } as const;
