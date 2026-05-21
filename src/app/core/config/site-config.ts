@@ -15,7 +15,7 @@ import { HeroStat, NavLink, SocialLink } from '../models';
 // details. Every contact link, social button and the footer reads from here.
 export const CONTACT = {
   email: 'saifdardese@gmail.com',
-  phone: '+962 7 0000 0000', // TODO: your phone number
+  phone: '+962 7 7554 4939',
   linkedinUrl: 'https://www.linkedin.com/in/sief-addeen-aldardeesi/',
   githubUrl: 'https://github.com/Siefaddeendardeesi',
 } as const;
