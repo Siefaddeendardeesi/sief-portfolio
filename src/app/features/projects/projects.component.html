@@ -8,12 +8,32 @@
       </p>
     </header>
 
-    <div class="projects__grid" @listStagger>
-      @for (project of projects; track project.slug) {
+    <div
+      class="projects__filters"
+      appScrollReveal
+      role="group"
+      aria-label="Filter projects by category"
+    >
+      @for (category of categories; track category) {
+        <button
+          type="button"
+          class="projects__filter"
+          [class.projects__filter--active]="activeCategory() === category"
+          [attr.aria-pressed]="activeCategory() === category"
+          (click)="setCategory(category)"
+        >
+          {{ category }}
+          <span class="projects__filter-count">{{ countFor(category) }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="projects__grid" [@filterStagger]="activeCategory()">
+      @for (project of filteredProjects(); track project.slug) {
         <article
           class="card card--interactive projects__card"
           [class.projects__card--featured]="project.featured"
-          appScrollReveal
+          appTilt
         >
           <a
             class="projects__cover"

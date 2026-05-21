@@ -11,10 +11,11 @@ import { ViewportScroller } from '@angular/common';
 import { FooterComponent } from '@features/footer/footer.component';
 import { NavbarComponent } from '@features/navbar/navbar.component';
 import { IconComponent } from '@shared/components/icon/icon.component';
+import { MagneticDirective } from '@shared/directives/magnetic.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, IconComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, IconComponent, MagneticDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

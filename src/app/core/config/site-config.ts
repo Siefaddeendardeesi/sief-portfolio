@@ -1,4 +1,4 @@
-import { NavLink, SocialLink } from '../models';
+import { HeroStat, NavLink, SocialLink } from '../models';
 
 /**
  * Central content and configuration for the portfolio.
@@ -41,13 +41,30 @@ export const SITE = {
     'Trilingual in Arabic, English, and Turkish, and currently expanding into AI/ML ' +
       'engineering — Python, scikit-learn, and applied regression work alongside my .NET career.',
   ],
-  workingOn:
-    'Deepening applied machine learning — regression modelling and feature engineering.',
+  workingOn: 'Deepening applied machine learning.',
   cvPath: 'assets/cv/SiefAddeenAldardeesiCv.pdf',
   cvFileName: 'SiefAddeenAldardeesiCv.pdf',
   themeStorageKey: 'sief-portfolio-theme',
   copyrightStartYear: 2025,
 } as const;
+
+// ---------------------------------------------------------------------------
+// Hero — rotating roles & animated stats
+// ---------------------------------------------------------------------------
+/** Job titles cycled through by the hero typewriter effect. */
+export const HERO_ROLES: readonly string[] = [
+  'Backend .NET Developer',
+  'ASP.NET Core Specialist',
+  'Clean Architecture Advocate',
+  'Aspiring AI Engineer',
+];
+
+/** Count-up statistics shown beneath the hero copy. */
+export const HERO_STATS: readonly HeroStat[] = [
+  { value: 3, suffix: '', label: 'Projects built' },
+  { value: 30, suffix: '+', label: 'Technologies' },
+  { value: 3, suffix: '', label: 'Languages spoken' },
+];
 
 // ---------------------------------------------------------------------------
 // Navigation

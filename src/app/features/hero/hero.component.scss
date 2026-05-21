@@ -62,9 +62,38 @@
 }
 
 .hero__role {
+  display: flex;
+  align-items: center;
+  min-height: 1.5em;
   font-size: $fs-lg;
   font-weight: $fw-semibold;
+  line-height: $lh-snug;
   color: var(--accent);
+}
+
+.hero__role-caret {
+  display: inline-block;
+  width: 3px;
+  height: 1.05em;
+  margin-left: 4px;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: hero-caret 1s steps(1, end) infinite;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes hero-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero__location {
@@ -92,6 +121,37 @@
   flex-wrap: wrap;
   gap: $space-sm;
   margin-top: $space-xs;
+}
+
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md $space-xl;
+  margin: 0;
+  margin-top: $space-sm;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3xs;
+}
+
+.hero__stat-value {
+  font-size: $fs-xl;
+  font-weight: $fw-extrabold;
+  line-height: 1;
+  letter-spacing: $ls-tight;
+
+  @include gradient-text;
+}
+
+.hero__stat-label {
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  color: var(--text-muted);
 }
 
 .hero__social {

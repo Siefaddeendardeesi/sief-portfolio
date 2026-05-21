@@ -6,7 +6,10 @@
       Hi, I'm <span class="hero__name">{{ site.name }}</span>
     </h1>
 
-    <p class="hero__role">{{ site.title }}</p>
+    <p class="hero__role" [attr.aria-label]="site.role">
+      <span class="hero__role-text">{{ typedRole() }}</span>
+      <span class="hero__role-caret" aria-hidden="true"></span>
+    </p>
     <p class="hero__location">
       <app-icon name="map-pin" [size]="18" />
       {{ site.location }}
@@ -14,11 +17,21 @@
     <p class="hero__tagline">{{ site.heroTagline }}</p>
 
     <div class="hero__actions">
-      <a class="btn btn--primary btn--lg" routerLink="/" fragment="projects">
+      <a
+        class="btn btn--primary btn--lg"
+        routerLink="/"
+        fragment="projects"
+        appMagnetic
+      >
         View projects
         <app-icon name="arrow-right" [size]="18" />
       </a>
-      <button class="btn btn--outline btn--lg" type="button" (click)="onContactMe()">
+      <button
+        class="btn btn--outline btn--lg"
+        type="button"
+        appMagnetic
+        (click)="onContactMe()"
+      >
         Contact me
       </button>
     </div>
@@ -34,6 +47,17 @@
         Download CV
       </a>
     </div>
+
+    <ul class="hero__stats">
+      @for (stat of stats; track stat.label) {
+        <li class="hero__stat">
+          <span class="hero__stat-value">
+            <span [appCountUp]="stat.value">0</span>{{ stat.suffix }}
+          </span>
+          <span class="hero__stat-label">{{ stat.label }}</span>
+        </li>
+      }
+    </ul>
 
     <div class="hero__social">
       @for (link of socialLinks; track link.platform) {

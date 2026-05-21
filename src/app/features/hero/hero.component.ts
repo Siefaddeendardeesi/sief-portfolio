@@ -1,11 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+  signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { CONTACT, SITE, SOCIAL_LINKS } from '@core/config/site-config';
+import { CONTACT, HERO_ROLES, HERO_STATS, SITE, SOCIAL_LINKS } from '@core/config/site-config';
 import { SocialPlatform } from '@core/models';
 import { AlertService } from '@core/services/alert.service';
 import { fadeInUp } from '@shared/animations/animations';
 import { IconComponent, IconName } from '@shared/components/icon/icon.component';
+import { CountUpDirective } from '@shared/directives/count-up.directive';
+import { MagneticDirective } from '@shared/directives/magnetic.directive';
 
 const SOCIAL_ICONS: Record<SocialPlatform, IconName> = {
   github: 'github',
@@ -15,9 +24,15 @@ const SOCIAL_ICONS: Record<SocialPlatform, IconName> = {
   location: 'map-pin',
 };
 
+/** Typewriter timings, in milliseconds. */
+const TYPE_SPEED = 85;
+const DELETE_SPEED = 40;
+const HOLD_FULL = 1700;
+const HOLD_EMPTY = 320;
+
 @Component({
   selector: 'app-hero',
-  imports: [RouterLink, IconComponent],
+  imports: [RouterLink, IconComponent, CountUpDirective, MagneticDirective],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,12 +40,28 @@ const SOCIAL_ICONS: Record<SocialPlatform, IconName> = {
 })
 export class HeroComponent {
   private readonly alert = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
   protected readonly site = SITE;
   protected readonly contact = CONTACT;
+  protected readonly stats = HERO_STATS;
   protected readonly socialLinks = SOCIAL_LINKS.filter((link) =>
     ['github', 'linkedin', 'email'].includes(link.platform),
   );
+
+  /** The role text currently shown by the typewriter. */
+  readonly typedRole = signal(HERO_ROLES[0]);
+
+  private readonly roles = HERO_ROLES;
+  private roleIndex = 0;
+  private charIndex = HERO_ROLES[0].length;
+  private deleting = false;
+  private timer: ReturnType<typeof setTimeout> | undefined;
+
+  constructor() {
+    afterNextRender(() => this.startTypewriter());
+    this.destroyRef.onDestroy(() => clearTimeout(this.timer));
+  }
 
   iconFor(platform: SocialPlatform): IconName {
     return SOCIAL_ICONS[platform];
@@ -45,5 +76,37 @@ export class HeroComponent {
     if (message) {
       this.alert.toast('Message sent — thanks for reaching out!', 'success', 3000);
     }
+  }
+
+  private startTypewriter(): void {
+    const reducedMotion =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      this.typedRole.set(this.roles[0]);
+      return;
+    }
+    this.charIndex = 0;
+    this.typedRole.set('');
+    this.tick();
+  }
+
+  /** Advances the typewriter by one character and schedules the next step. */
+  private tick(): void {
+    const current = this.roles[this.roleIndex];
+    this.charIndex += this.deleting ? -1 : 1;
+    this.typedRole.set(current.slice(0, this.charIndex));
+
+    let delay = this.deleting ? DELETE_SPEED : TYPE_SPEED;
+
+    if (!this.deleting && this.charIndex === current.length) {
+      this.deleting = true;
+      delay = HOLD_FULL;
+    } else if (this.deleting && this.charIndex === 0) {
+      this.deleting = false;
+      this.roleIndex = (this.roleIndex + 1) % this.roles.length;
+      delay = HOLD_EMPTY;
+    }
+
+    this.timer = setTimeout(() => this.tick(), delay);
   }
 }

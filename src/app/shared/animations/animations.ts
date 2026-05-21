@@ -39,6 +39,25 @@ export const listStagger: AnimationTriggerMetadata = trigger('listStagger', [
   ]),
 ]);
 
+/**
+ * Re-staggers every card in the projects grid whenever the active filter
+ * changes (bind the trigger to the active category so it re-fires).
+ */
+export const filterStagger: AnimationTriggerMetadata = trigger('filterStagger', [
+  transition('* => *', [
+    query(
+      '.projects__card',
+      [
+        style({ opacity: 0, transform: 'translateY(16px)' }),
+        stagger(70, [
+          animate(`460ms ${EASE}`, style({ opacity: 1, transform: 'translateY(0)' })),
+        ]),
+      ],
+      { optional: true },
+    ),
+  ]),
+]);
+
 /** Expand / collapse used by the mobile navigation menu. */
 export const expandCollapse: AnimationTriggerMetadata = trigger('expandCollapse', [
   transition(':enter', [

@@ -1,5 +1,60 @@
 @use 'abstracts' as *;
 
+.projects__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-2xs;
+  margin-bottom: $space-lg;
+}
+
+.projects__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2xs;
+  padding: 0.5rem 1rem;
+  font-family: $font-sans;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: var(--text-soft);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: $radius-pill;
+  cursor: pointer;
+  transition:
+    color $transition-fast $ease-out,
+    background-color $transition-fast $ease-out,
+    border-color $transition-fast $ease-out,
+    transform $transition-fast $ease-out;
+
+  @include focus-ring;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+
+  &--active {
+    color: var(--accent-contrast);
+    background: var(--gradient-accent);
+    border-color: transparent;
+    box-shadow: var(--shadow-accent);
+  }
+}
+
+.projects__filter-count {
+  @include flex-center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding-inline: 0.35rem;
+  font-family: $font-mono;
+  font-size: $fs-2xs;
+  font-weight: $fw-semibold;
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  border-radius: $radius-pill;
+}
+
 .projects__grid {
   display: grid;
   gap: $space-md;
@@ -11,6 +66,7 @@
 
 .projects__card {
   overflow: hidden;
+  transform-style: preserve-3d;
 
   &--featured {
     @include respond-to('lg') {

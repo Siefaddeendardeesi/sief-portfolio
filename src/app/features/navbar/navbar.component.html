@@ -11,6 +11,8 @@
           class="navbar__link"
           routerLink="/"
           [fragment]="link.fragment"
+          [class.navbar__link--active]="activeFragment() === link.fragment"
+          [attr.aria-current]="activeFragment() === link.fragment ? 'true' : null"
           (click)="closeMobile()"
         >
           {{ link.label }}
@@ -64,6 +66,8 @@
             class="navbar__mobile-link"
             routerLink="/"
             [fragment]="link.fragment"
+            [class.navbar__mobile-link--active]="activeFragment() === link.fragment"
+            [attr.aria-current]="activeFragment() === link.fragment ? 'true' : null"
             (click)="closeMobile()"
           >
             {{ link.label }}
@@ -80,4 +84,10 @@
       </div>
     </nav>
   }
+
+  <span
+    class="navbar__progress"
+    aria-hidden="true"
+    [style.transform]="'scaleX(' + scrollProgress() / 100 + ')'"
+  ></span>
 </header>
