@@ -4,6 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SOCIAL_LINKS } from '@core/config/site-config';
 import { SocialPlatform } from '@core/models';
 import { AlertService } from '@core/services/alert.service';
+import { ContactService } from '@core/services/contact.service';
 import { ScrollRevealDirective } from '@shared/directives/scroll-reveal.directive';
 import { IconComponent, IconName } from '@shared/components/icon/icon.component';
 
@@ -25,6 +26,7 @@ const SOCIAL_ICONS: Record<SocialPlatform, IconName> = {
 export class ContactComponent {
   private readonly fb = inject(FormBuilder);
   private readonly alert = inject(AlertService);
+  private readonly contactService = inject(ContactService);
 
   protected readonly socialLinks = SOCIAL_LINKS;
   readonly submitting = signal(false);
@@ -51,9 +53,17 @@ export class ContactComponent {
     }
 
     this.submitting.set(true);
-    await new Promise((resolve) => setTimeout(resolve, 350));
-    this.alert.toast('Message sent — thanks for reaching out!', 'success', 3000);
-    this.form.reset();
-    this.submitting.set(false);
+
+    try {
+      await this.contactService.send(this.form.getRawValue());
+      this.alert.toast('Message sent — thanks for reaching out!', 'success', 3000);
+      this.form.reset();
+    } catch (error) {
+      const detail =
+        error instanceof Error ? error.message : 'Please try again or email me directly.';
+      await this.alert.error('Could not send message', detail);
+    } finally {
+      this.submitting.set(false);
+    }
   }
 }

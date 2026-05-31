@@ -20,6 +20,14 @@ export const CONTACT = {
   githubUrl: 'https://github.com/Siefaddeendardeesi',
 } as const;
 
+/**
+ * Formspree delivers contact-form submissions to your inbox.
+ * Create a free form at https://formspree.io and paste the endpoint URL below.
+ */
+export const FORMSPREE = {
+  endpoint: '',
+} as const;
+
 // ---------------------------------------------------------------------------
 // Identity & copy
 // ---------------------------------------------------------------------------

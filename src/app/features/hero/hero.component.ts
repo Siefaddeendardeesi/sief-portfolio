@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 import { CONTACT, HERO_ROLES, HERO_STATS, SITE, SOCIAL_LINKS } from '@core/config/site-config';
 import { SocialPlatform } from '@core/models';
 import { AlertService } from '@core/services/alert.service';
+import { ContactService } from '@core/services/contact.service';
 import { fadeInUp } from '@shared/animations/animations';
 import { IconComponent, IconName } from '@shared/components/icon/icon.component';
 import { CountUpDirective } from '@shared/directives/count-up.directive';
@@ -40,6 +41,7 @@ const HOLD_EMPTY = 320;
 })
 export class HeroComponent {
   private readonly alert = inject(AlertService);
+  private readonly contactService = inject(ContactService);
   private readonly destroyRef = inject(DestroyRef);
 
   protected readonly site = SITE;
@@ -73,8 +75,17 @@ export class HeroComponent {
 
   async onContactMe(): Promise<void> {
     const message = await this.alert.contactForm();
-    if (message) {
+    if (!message) {
+      return;
+    }
+
+    try {
+      await this.contactService.send(message);
       this.alert.toast('Message sent — thanks for reaching out!', 'success', 3000);
+    } catch (error) {
+      const detail =
+        error instanceof Error ? error.message : 'Please try again or email me directly.';
+      await this.alert.error('Could not send message', detail);
     }
   }
 
