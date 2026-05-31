@@ -25,7 +25,7 @@ export const CONTACT = {
  * Create a free form at https://formspree.io and paste the endpoint URL below.
  */
 export const FORMSPREE = {
-  endpoint: '',
+  endpoint: 'https://formspree.io/f/mnjrygal',
 } as const;
 
 // ---------------------------------------------------------------------------
