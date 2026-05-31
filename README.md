@@ -40,6 +40,7 @@ Open [http://localhost:4200](http://localhost:4200).
 | --- | --- |
 | `npm start` | Dev server |
 | `npm run build:prod` | Production build |
+| `npm run build:pages` | Production build for GitHub Pages (`/sief-portfolio/` base href) |
 | `npm test` | Unit tests (Vitest) |
 | `npm run lint` | ESLint |
 | `npm run format` | Prettier write |
@@ -66,11 +67,18 @@ npm run build:prod -- --base-href /sief-portfolio/
 
 ## Deploy to GitHub Pages
 
-1. Push this repo to GitHub (default branch `main`).
-2. In repo **Settings → Pages**, set source to **GitHub Actions**.
-3. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically.
+Live URL: `https://siefaddeendardeesi.github.io/sief-portfolio/`
 
-If your repo name is not `sief-portfolio`, update the `--base-href` flag in the workflow to match.
+1. Push this repo to GitHub (default branch `main`).
+2. In repo **Settings → Pages**:
+   - **Source:** Deploy from a branch
+   - **Branch:** `gh-pages` → `/ (root)` → **Save**
+3. Push to `main` — the workflow builds the app and publishes to the `gh-pages` branch.
+4. Wait 1–2 minutes, then open the live URL above.
+
+If your repo name is not `sief-portfolio`, update the `build:pages` script in `package.json` to match.
+
+**Troubleshooting:** If you see “There isn't a GitHub Pages site here”, confirm step 2 uses the `gh-pages` branch (created automatically after the first successful workflow run).
 
 ## Project structure
 
