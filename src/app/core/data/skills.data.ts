@@ -41,14 +41,6 @@ export const SKILL_GROUPS: readonly SkillGroup[] = [
     title: 'AI / ML',
     icon: 'ai',
     note: 'Currently learning',
-    skills: [
-      'Python',
-      'NumPy',
-      'Pandas',
-      'scikit-learn',
-      'XGBoost',
-      'Linear Regression',
-      'Feature Engineering',
-    ],
+    skills: ['Python', 'Feature Engineering'],
   },
 ];

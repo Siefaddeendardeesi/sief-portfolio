@@ -39,7 +39,7 @@ export const SITE = {
       'and Entity Framework Core, with two flagship projects: FavouriteRestaurant (bilingual ' +
       'restaurant platform) and MyHR (enterprise HR ERP).',
     'Trilingual in Arabic, English, and Turkish, and currently expanding into AI/ML ' +
-      'engineering — Python, scikit-learn, and applied regression work alongside my .NET career.',
+      'engineering — Python and feature engineering alongside my .NET career.',
   ],
   workingOn: 'Deepening applied machine learning.',
   cvPath: 'assets/cv/SiefAddeenAldardeesiCv.pdf',
