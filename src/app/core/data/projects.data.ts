@@ -4,56 +4,56 @@ import { Project } from '../models';
 /**
  * Featured projects.
  *
- * TODO(Sief): each project links to `${githubUrl}/<repo>`. Update the repo
- * names below if they differ, and add `live` links where a demo is hosted.
+ * Each project links to `${githubUrl}/<repo>`; add `live` links where a demo
+ * is hosted.
  */
 export const PROJECTS: readonly Project[] = [
   {
     slug: 'favourite-restaurant',
-    title: 'FavouriteRestaurant',
+    title: 'Favourite Restaurant',
     tagline: 'Full-stack bilingual restaurant ordering platform with real-time order tracking.',
     category: 'Full-Stack Web',
-    year: '2025',
+    year: '2024 – 2025',
     featured: true,
     accent: '#f97316',
     overview: [
-      'FavouriteRestaurant is a full-stack, bilingual restaurant ordering platform built on ' +
-        'ASP.NET Core MVC and a four-project Clean Architecture solution. Customers browse ' +
-        'menus, place orders and follow them in real time, while staff manage the kitchen ' +
-        'workflow from a dedicated dashboard.',
-      'Payments run through a Stripe pre-authorization and capture flow, live order updates ' +
-        'are pushed over SignalR, and scheduled work is handled by Hangfire background jobs. ' +
-        'The platform ships full Arabic / English localization with right-to-left support and ' +
-        'exports Excel and PDF reports via EPPlus and QuestPDF.',
-      'A 1M-context security audit hardened the authentication layer — a hybrid Cookie + JWT ' +
-        'scheme, a dedicated antiforgery-token endpoint, and fixes for XSS and unsafe ' +
-        'localStorage JWT handling.',
+      'Favourite Restaurant is a full-stack ordering platform built as a multi-layered ' +
+        'solution (Web, Application, Domain, Infrastructure) covering restaurant discovery, ' +
+        'ordering, and real-time order tracking.',
+      'Authentication uses a dual strategy combining ASP.NET Identity cookies and JWT bearer ' +
+        'tokens, with antiforgery token handling and Google OAuth. Payments run through the ' +
+        'Stripe gateway with webhook handling, backed by Hangfire background jobs for payment ' +
+        'verification and reconciliation.',
+      'Order tracking is pushed live over SignalR with Firebase push notifications, and a ' +
+        'loyalty points system generates vouchers automatically and validates promo codes. ' +
+        'The platform ships English/Arabic localization with RTL support, and targeted ' +
+        'optimization raised Lighthouse performance to 93/100 on the home page.',
     ],
     stack: [
-      'ASP.NET Core MVC (net9.0)',
-      'Clean Architecture',
-      'EF Core',
-      'SQL Server',
-      'ASP.NET Identity',
-      'JWT',
-      'Google OAuth',
+      'ASP.NET Core MVC (.NET 9)',
+      'Entity Framework Core',
       'SignalR',
       'Hangfire',
-      'Stripe',
-      'Firebase Cloud Messaging',
+      'Stripe API',
+      'Firebase Admin SDK',
+      'Google OAuth',
       'EPPlus',
       'QuestPDF',
-      'SCSS',
+      'AutoMapper',
+      'SCSS/Sass',
     ],
     highlights: [
-      '4-project Clean Architecture solution (Web / Application / Domain / Infrastructure)',
-      'Stripe pre-authorization & capture payment flow',
-      'Real-time order updates via SignalR',
-      'Bilingual Arabic/English with full RTL support',
-      'Hangfire background jobs for scheduled tasks',
-      'Excel/PDF reporting with EPPlus and QuestPDF',
-      'Hardened auth: hybrid Cookie + JWT, antiforgery token endpoint, fixed XSS and ' +
-        'localStorage-JWT issues from a 1M-context security audit',
+      'Multi-layered solution (Web, Application, Domain, Infrastructure) for restaurant ' +
+        'discovery, ordering, and real-time order tracking',
+      'Dual authentication combining ASP.NET Identity cookies and JWT bearer tokens, with ' +
+        'antiforgery token handling and Google OAuth',
+      'Stripe payment gateway with webhook handling, plus Hangfire background jobs for ' +
+        'payment verification and reconciliation',
+      'Real-time order tracking with SignalR and Firebase push notifications',
+      'Loyalty points system with automated voucher generation and promo code validation, ' +
+        'plus an admin dashboard',
+      'English/Arabic localization with RTL support; Lighthouse performance raised to 93/100 ' +
+        'on the home page',
     ],
     links: [
       {

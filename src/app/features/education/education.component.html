@@ -20,5 +20,18 @@
         </article>
       }
     </div>
+
+    <div
+      class="card card--padded education__card education__certifications"
+      appScrollReveal
+      [revealDelay]="120"
+    >
+      <h3 class="education__degree" id="certifications-title">Certifications</h3>
+      <ul class="chip-list" aria-labelledby="certifications-title">
+        @for (certification of certifications; track certification) {
+          <li class="chip">{{ certification }}</li>
+        }
+      </ul>
+    </div>
   </div>
 </section>

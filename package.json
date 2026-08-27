@@ -1,7 +1,7 @@
 {
   "name": "sief-portfolio",
   "version": "1.0.0",
-  "description": "Personal developer portfolio of Sief Addeen Aldardeesi — Full-Stack .NET Developer based in Amman, Jordan.",
+  "description": "Personal developer portfolio of Sief Addeen Aldardeesi — Backend Developer (.NET & ASP.NET Core, AI Engineering) based in Amman, Jordan.",
   "author": "Sief Addeen Aldardeesi",
   "license": "MIT",
   "scripts": {

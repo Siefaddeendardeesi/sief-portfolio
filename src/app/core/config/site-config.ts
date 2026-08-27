@@ -11,12 +11,10 @@ import { HeroStat, NavLink, SocialLink } from '../models';
 // ---------------------------------------------------------------------------
 // Contact details
 // ---------------------------------------------------------------------------
-// TODO(Sief): replace the four placeholder values below with your real
-// details. Every contact link, social button and the footer reads from here.
 export const CONTACT = {
   email: 'saifdardese@gmail.com',
-  phone: '+962 7 7554 4939',
-  linkedinUrl: 'https://www.linkedin.com/in/sief-addeen-aldardeesi/',
+  phone: '+962 77 554 4939',
+  linkedinUrl: 'https://www.linkedin.com/in/sief-addeenaldardeesi/',
   githubUrl: 'https://github.com/Siefaddeendardeesi',
 } as const;
 
@@ -35,21 +33,23 @@ export const SITE = {
   name: 'Sief Addeen Aldardeesi',
   shortName: 'Sief Aldardeesi',
   initials: 'SA',
-  role: 'Backend .NET Developer',
-  title: 'Backend .NET Developer | Aspiring AI Engineer',
+  role: 'Backend Developer',
+  title: 'Backend Developer | .NET & ASP.NET Core | AI Engineering',
   location: 'Amman, Jordan',
   heroTagline:
-    'I build production .NET systems — Clean Architecture, real-time features and payment ' +
-    'flows — and I am now folding applied machine learning into the mix.',
+    'I build enterprise HR and advisory platforms on ASP.NET Core and .NET 9 — Clean ' +
+    'Architecture, modular monoliths and REST APIs — and I integrate RAG pipelines and ' +
+    'LLM-driven workflows into production business software.',
   aboutBio: [
-    'Software Engineer from Üsküdar University (Istanbul, 2023), now based in Amman and ' +
-      'working as a backend .NET developer. I specialize in ASP.NET Core, Clean Architecture, ' +
-      'and Entity Framework Core, with two flagship projects: FavouriteRestaurant (bilingual ' +
-      'restaurant platform) and MyHR (enterprise HR ERP).',
-    'Trilingual in Arabic, English, and Turkish, and currently expanding into AI/ML ' +
-      'engineering — Python and feature engineering alongside my .NET career.',
+    'Backend Developer with 2+ years of experience building enterprise HR and advisory ' +
+      'platforms at Menaitech using ASP.NET Core and Entity Framework Core. I specialize in ' +
+      'Clean Architecture, modular monolith design, and REST API development on .NET 9 with ' +
+      'SQL Server.',
+    'My focus is increasingly on AI engineering — Retrieval-Augmented Generation (RAG) ' +
+      'pipelines, agent orchestration with LangGraph, and LLM integration into production ' +
+      'business software. Trilingual in Arabic, English, and Turkish.',
   ],
-  workingOn: 'Deepening applied machine learning.',
+  workingOn: 'RAG pipelines, LangGraph agent orchestration, and LLM integration in production.',
   cvPath: 'assets/cv/SiefAddeenAldardeesiCv.pdf',
   cvFileName: 'SiefAddeenAldardeesiCv.pdf',
   themeStorageKey: 'sief-portfolio-theme',
@@ -61,16 +61,16 @@ export const SITE = {
 // ---------------------------------------------------------------------------
 /** Job titles cycled through by the hero typewriter effect. */
 export const HERO_ROLES: readonly string[] = [
-  'Backend .NET Developer',
-  'ASP.NET Core Specialist',
+  'Backend Developer',
+  '.NET & ASP.NET Core Developer',
   'Clean Architecture Advocate',
-  'Aspiring AI Engineer',
+  'AI Engineering',
 ];
 
 /** Count-up statistics shown beneath the hero copy. */
 export const HERO_STATS: readonly HeroStat[] = [
-  { value: 3, suffix: '', label: 'Projects built' },
-  { value: 30, suffix: '+', label: 'Technologies' },
+  { value: 2, suffix: '+', label: 'Years experience' },
+  { value: 40, suffix: '+', label: 'Technologies' },
   { value: 3, suffix: '', label: 'Languages spoken' },
 ];
 

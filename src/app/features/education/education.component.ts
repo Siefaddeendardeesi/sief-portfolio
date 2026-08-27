@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { EDUCATION } from '@core/data/experience.data';
+import { CERTIFICATIONS, EDUCATION } from '@core/data/experience.data';
 import { ScrollRevealDirective } from '@shared/directives/scroll-reveal.directive';
 import { IconComponent } from '@shared/components/icon/icon.component';
 
@@ -13,4 +13,5 @@ import { IconComponent } from '@shared/components/icon/icon.component';
 })
 export class EducationComponent {
   protected readonly education = EDUCATION;
+  protected readonly certifications = CERTIFICATIONS;
 }
